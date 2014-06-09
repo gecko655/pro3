@@ -50,17 +50,22 @@ public class SimpleCalculator extends JTextField
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
         char input = arg0.getActionCommand().charAt(0);
-		if(input=='+'||input=='-'){
+        switch(input){
+        case '+':
+        case '-':
 		    doCalc();
 		    lastOpe  = input;
 		    this.setText("");
-		} else if(input=='='){
+		    break;
+        case '=':
 		    doCalc();
 		    this.setText(String.valueOf(result));
-		} else{
+		    break;
+        default:
             String newVal = this.getText()+ input;
             this.setText(newVal);
-		}
+            break;
+        }
 	}
 
 	private void doCalc() {
